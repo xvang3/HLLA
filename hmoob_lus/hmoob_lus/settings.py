@@ -73,16 +73,19 @@ WSGI_APPLICATION = 'hmoob_lus.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+from decouple import config
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test',
-        'USER': 'postgres',
-        'PASSWORD': "Qwer1234Qwer",
-        'HOST':'35.233.218.202',
-        'PORT':'5432'
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT', default='5432'),  # Set default if not provided
     }
 }
+
 
 
 # Password validation
