@@ -76,10 +76,10 @@ WSGI_APPLICATION = 'hmoob_lus.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hlla_db',
+        'NAME': 'test',
         'USER': 'postgres',
-        'PASSWORD': 'qwer1234QWER!@#$',
-        'HOST':'localhost',
+        'PASSWORD': "Qwer1234Qwer",
+        'HOST':'35.233.218.202',
         'PORT':'5432'
     }
 }
