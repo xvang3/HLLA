@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Audio Test</title>
+</head>
+<body>
+    <h1>Test Audio Playback</h1>
+    <ul>
+        {% for word in words %}
+            <li>
+                <strong>{{ word.english_word }} - {{ word.hmong_word }}</strong><br>
+                <audio controls>
+                    <source src="{{ word.male_audio_file.url }}" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

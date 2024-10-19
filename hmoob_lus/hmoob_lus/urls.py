@@ -16,7 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from main.views import play_audio_test
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-]
+    path('admin/', admin.site.urls), 
+    path('play-audio/', play_audio_test, name='play_audio_test')
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
