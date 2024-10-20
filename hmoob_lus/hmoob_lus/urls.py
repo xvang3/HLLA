@@ -15,13 +15,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include  # Include function was missing
 from django.conf import settings
 from django.conf.urls.static import static
-from main.views import play_audio_test
-
+from main import views  # Import only once
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
-    path('play-audio/', play_audio_test, name='play_audio_test')
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('play-audio/', views.play_audio_test, name='play_audio_test'),  # Keep play_audio_test
+    path('', views.home, name='home'),  # Home view remains
+    path('main/', include('main.urls')),  # Include app-level URLs here
+]
+
+# Serve media files in development
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -12,7 +12,11 @@
             <li>
                 <strong>{{ word.english_word }} - {{ word.hmong_word }}</strong><br>
                 <audio controls>
-                    <source src="{{ word.male_audio_file.url }}" type="audio/wav">
+                    <source src="{{ word.male_audio_url }}" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                <audio controls>
+                    <source src="{{ word.female_audio_url }}" type="audio/wav">
                     Your browser does not support the audio element.
                 </audio>
             </li>
