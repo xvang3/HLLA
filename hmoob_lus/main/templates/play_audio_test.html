@@ -1,11 +1,16 @@
+<!-- play_audio_test.html -->
+{% extends 'base.html' %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play Audio Test</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
+    {% block content %}
     <h1>Test Audio Playback</h1>
     <ul>
         {% for word in words %}
@@ -22,5 +27,6 @@
             </li>
         {% endfor %}
     </ul>
+    {% endblock %}
 </body>
 </html>

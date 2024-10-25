@@ -7,3 +7,15 @@ def home(request):
 def play_audio_test(request):
     words = Word.objects.all()  # Retrieve all Word objects from the database
     return render(request, 'play_audio_test.html', {'words': words})
+
+def about(request):
+    return render(request, 'about.html')
+
+def courses(request):
+    return render(request, 'courses.html')
+
+def practice(request):
+    return render(request, 'practice.html')
+
+def resources(request):
+    return render(request, 'resources.html')
