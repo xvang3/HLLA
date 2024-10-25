@@ -14,12 +14,42 @@
     <div class="left-side"></div>
 
     <!-- Center-aligned navigation bar -->
-    <nav class="topnav">
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'courses' %}">Courses</a>
-        <a href="{% url 'practice' %}">Practice</a>
-        <a href="{% url 'resources' %}">Resources</a>
-        <!-- <a href="{% url 'about' %}">About</a> -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="/" id="navbar__logo">
+                <img src="{% static 'images/logo_yellow.png' %}" alt="Logo" />
+            </a>            
+            <div class="navbar__toggle" id="left-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="{% url 'home' %}" class="navbar__links">HOME</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{% url 'courses' %}" class="navbar__links">COURSES</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{% url 'practice' %}" class="navbar__links">PRACTICE</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{% url 'resources' %}" class="navbar__links">RESOURCES</a>
+                </li>
+                <!-- <li class="navbar__item">
+                    <a href="{% url 'about' %}" class="navbar__links">ABOUT</a>
+                </li> -->
+            </ul>
+            <ul class="navbar__button">
+                <li class="navbar__btn">
+                    <a href="/" class="button">LOGIN</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="/" class="button">REGISTER</a>
+                </li>
+            </ul>
+        </div>
     </nav>
     
     <!-- Right-aligned (space for future elements) -->
@@ -31,5 +61,6 @@
         {% endblock %}
     </div>
 
+    <script src="{% static 'js/app.js' %}"></script>
 </body>
 </html>
