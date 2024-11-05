@@ -1,16 +1,22 @@
 import pandas as pd
 
+# Define the base URL for raw GitHub content
+base_github_url = "https://raw.githubusercontent.com/xvang3/HLLA/sqlite-testing/hmoob_lus/media/"
+
 # Load the Excel file
-df = pd.read_excel("PDF HLLA.xlsx")
+file_path = "PDF HLLA.xlsx"  # Update this with the path to your Excel file
+df = pd.read_excel(file_path)
 
-# Define columns that need media URL adjustments
-media_columns = ["Male Audio", "Female Audio", "Pronunciation Video", "Real Video", "Animated Video"]
+# Columns to update
+audio_columns = ["Male Audio", "Female Audio", "Pronunciation Video", "Real Video", "Animated Video"]
 
-# Add MEDIA_URL prefix to relevant columns and replace spaces with %20
-for column in media_columns:
-    # Check if column exists to avoid errors
-    if column in df.columns:
-        df[column] = df[column].apply(lambda x: f"/localhost:8000/{x.replace(' ', '%20')}" if pd.notna(x) else x)
+# Iterate through each specified column and update the URLs
+for column in audio_columns:
+    if column in df.columns:  # Only process if the column exists
+        df[column] = df[column].apply(lambda x: base_github_url + x.split('/')[-1] if pd.notna(x) else x)
 
-# Save the modified Excel file
-df.to_excel("modified_excel_file.xlsx", index=False)
+# Save the updated DataFrame back to an Excel file
+output_file_path = "updated PDF HLLA.xlsx"  # Specify where you want to save the updated file
+df.to_excel(output_file_path, index=False)
+
+print("Excel file has been updated with GitHub raw URLs.")
