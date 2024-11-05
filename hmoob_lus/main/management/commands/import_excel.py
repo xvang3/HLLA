@@ -1,13 +1,18 @@
 import pandas as pd
 from django.core.management.base import BaseCommand
 from main.models import Word
+from pathlib import Path
 
 class Command(BaseCommand):
     help = 'Import words from an Excel file'
 
     def handle(self, *args, **kwargs):
+        # Get the path three levels above this file
+        base_path = Path(__file__).resolve().parents[3]  # Move up 3 levels
+        excel_path = base_path / 'PDF HLLA.xlsx'  # Append the filename to the base path
+
         # Load the Excel file
-        df = pd.read_excel('C:\\Users\\ntxhw\\Downloads\\PDF HLLA.xlsx')
+        df = pd.read_excel(excel_path)
 
         # Loop through each row and update or create Word objects
         for index, row in df.iterrows():
