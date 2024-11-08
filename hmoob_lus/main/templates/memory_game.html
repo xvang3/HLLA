@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="{% static 'css/memory_game.css' %}">
+</head>
+<body>
+    <h1>Hmong Memory Game</h1>
+    <p>Match the Hmong words with their English translations!</p>
+
+    <p>Correct Matches: <span id="correct-matches">0</span></p>
+
+    <div id="game-board" class="game-board">
+        {% for card in cards %}
+            <div class="card" data-word="{{ card.word }}" data-id="{{ card.id }}" onclick="flipCard(this)">
+                <div class="card-front">?</div>
+                <div class="card-back">{{ card.word }}</div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        let flippedCards = [];
+        let matchedPairs = 0;
+
+        function flipCard(card) {
+            if (flippedCards.length < 2 && !card.classList.contains('flipped') && !card.classList.contains('matched')) {
+                card.classList.add('flipped');
+                flippedCards.push(card);
+
+                if (flippedCards.length === 2) {
+                    checkForMatch();
+                }
+            }
+        }
+
+        function checkForMatch() {
+            const [card1, card2] = flippedCards;
+            const word1 = card1.getAttribute('data-word');
+            const word2 = card2.getAttribute('data-word');
+
+            if (isMatch(word1, word2) && card1.getAttribute('data-id') !== card2.getAttribute('data-id')) {
+                matchedPairs += 1;
+                card1.classList.add('matched');
+                card2.classList.add('matched');
+
+                // Reset flipped cards and check for win
+                flippedCards = [];
+                document.getElementById('correct-matches').textContent = matchedPairs;
+                
+                if (matchedPairs === {{ cards|length }} / 2) {
+                    setTimeout(() => alert('You won!'), 500);
+                }
+            } else {
+                setTimeout(() => {
+                    card1.classList.remove('flipped');
+                    card2.classList.remove('flipped');
+                    flippedCards = [];
+                }, 1000);
+            }
+        }
+
+        function isMatch(word1, word2) {
+            return word1.toLowerCase() === word2.toLowerCase();
+        }
+    </script>
+</body>
+</html>

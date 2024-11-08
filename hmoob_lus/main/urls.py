@@ -8,6 +8,7 @@ urlpatterns = [
     path('courses/', views.courses, name='courses'),  # Course page
     path('practice/', views.practice, name='practice'),  # Practice page
     path('resources/', views.resources, name='resources'),  # Resources page
+    path('memory-game/', views.memory_game, name='memory_game'),  # Add this line
 
     # Add other URLs as needed
 ]

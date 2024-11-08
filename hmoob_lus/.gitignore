@@ -9,3 +9,5 @@ __pycache__/
 *.pyc
 ./misc/
 venv/
+../venv/
+./TempFirewallRule.ps1
