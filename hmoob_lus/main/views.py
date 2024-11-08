@@ -15,7 +15,8 @@ def courses(request):
     return render(request, 'courses.html')
 
 def practice(request):
-    return render(request, 'practice.html')
+    words = Word.objects.all()  
+    return render(request, 'practice.html', {'words': words})
 
 def resources(request):
     return render(request, 'resources.html')

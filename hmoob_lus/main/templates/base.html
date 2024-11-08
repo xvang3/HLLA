@@ -41,14 +41,14 @@
                     <a href="{% url 'about' %}" class="navbar__links">ABOUT</a>
                 </li> -->
             </ul>
-            <ul class="navbar__button">
+            <!-- <ul class="navbar__button">
                 <li class="navbar__btn">
                     <a href="/" class="button">LOGIN</a>
                 </li>
                 <li class="navbar__btn">
                     <a href="/" class="button">REGISTER</a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
     </nav>
     
@@ -60,6 +60,12 @@
         {% block content %}
         {% endblock %}
     </div>
+
+    <footer>
+        <div>
+            <p>This is the footer. </p>
+        </div>
+    </footer>
 
     <script src="{% static 'js/app.js' %}"></script>
 </body>
