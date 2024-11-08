@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Word
+import random
 
 def home(request):
     return render(request, 'home.html')
@@ -19,3 +20,16 @@ def practice(request):
 
 def resources(request):
     return render(request, 'resources.html')
+
+def memory_game(request):
+    # Get a sample of words for the game
+    words = list(Word.objects.all())
+    random.shuffle(words)
+    
+    # Duplicate each word pair and shuffle again
+    game_words = words[:6]  # Adjust the number based on desired difficulty
+    card_pairs = [(word.hmong_word, word.english_word) for word in game_words]
+    cards = [item for pair in card_pairs for item in pair]  # Flatten the list
+    random.shuffle(cards)
+
+    return render(request, 'memory_game.html', {'cards': cards})
