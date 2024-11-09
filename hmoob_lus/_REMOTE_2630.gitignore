@@ -1,0 +1,14 @@
+# Ignore environment variable files
+.env
+
+# Ignore all media uploads (if you have media files uploaded locally)
+#media/
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+./misc/
+venv/
+../venv/
+./venv/
+./TempFirewallRule.ps1
