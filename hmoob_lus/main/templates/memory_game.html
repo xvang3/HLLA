@@ -1,71 +1,30 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Game</title>
-    <link rel="stylesheet" href="{% static 'css/memory_game.css' %}">
-</head>
-<body>
+{% block title %}Memory Game{% endblock %}
+
+{% block content %}
+<div class="container text-center my-5">
     <h1>Hmong Memory Game</h1>
     <p>Match the Hmong words with their English translations!</p>
-
     <p>Correct Matches: <span id="correct-matches">0</span></p>
+</div>
 
-    <div id="game-board" class="game-board">
-        {% for card in cards %}
-            <div class="card" data-word="{{ card.word }}" data-id="{{ card.id }}" onclick="flipCard(this)">
-                <div class="card-front">?</div>
-                <div class="card-back">{{ card.word }}</div>
-            </div>
-        {% endfor %}
-    </div>
+<div id="game-board" class="container d-flex flex-wrap justify-content-center">
+    {% for card in cards %}
+        <div class="card mb-4 mx-2" data-word="{{ card.word }}" data-id="{{ card.id }}" onclick="flipCard(this)">
+            <div class="card-front">?</div>
+            <div class="card-back"><span>{{ card.word }}</span></div>
+        </div>
+    {% endfor %}
+</div>
 
-    <script>
-        let flippedCards = [];
-        let matchedPairs = 0;
+<!-- Load Bootstrap and Custom CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/memory_game.css' %}">
 
-        function flipCard(card) {
-            if (flippedCards.length < 2 && !card.classList.contains('flipped') && !card.classList.contains('matched')) {
-                card.classList.add('flipped');
-                flippedCards.push(card);
-
-                if (flippedCards.length === 2) {
-                    checkForMatch();
-                }
-            }
-        }
-
-        function checkForMatch() {
-            const [card1, card2] = flippedCards;
-            const word1 = card1.getAttribute('data-word');
-            const word2 = card2.getAttribute('data-word');
-
-            if (isMatch(word1, word2) && card1.getAttribute('data-id') !== card2.getAttribute('data-id')) {
-                matchedPairs += 1;
-                card1.classList.add('matched');
-                card2.classList.add('matched');
-
-                // Reset flipped cards and check for win
-                flippedCards = [];
-                document.getElementById('correct-matches').textContent = matchedPairs;
-                
-                if (matchedPairs === {{ cards|length }} / 2) {
-                    setTimeout(() => alert('You won!'), 500);
-                }
-            } else {
-                setTimeout(() => {
-                    card1.classList.remove('flipped');
-                    card2.classList.remove('flipped');
-                    flippedCards = [];
-                }, 1000);
-            }
-        }
-
-        function isMatch(word1, word2) {
-            return word1.toLowerCase() === word2.toLowerCase();
-        }
-    </script>
-</body>
-</html>
+<!-- Load Custom JavaScript -->
+<script src="{% static 'js/memory_game.js' %}"></script>
+<script>
+    const totalPairs = {{ total_pairs }};
+</script>
+{% endblock %}

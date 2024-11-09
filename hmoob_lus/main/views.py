@@ -22,14 +22,21 @@ def resources(request):
     return render(request, 'resources.html')
 
 def memory_game(request):
-    # Get a sample of words for the game
+    # Get a random sample of words from the Word model
     words = list(Word.objects.all())
     random.shuffle(words)
     
-    # Duplicate each word pair and shuffle again
-    game_words = words[:6]  # Adjust the number based on desired difficulty
-    card_pairs = [(word.hmong_word, word.english_word) for word in game_words]
-    cards = [item for pair in card_pairs for item in pair]  # Flatten the list
+    # Take the first 6 words (3 pairs)
+    game_cards = words[:6]
+    cards = []
+    
+    for game_card in game_cards:
+        # Each word is added twice with unique IDs for matching purposes
+        cards.append({'id': f"{game_card.id}-hmong", 'word': game_card.hmong_word})
+        cards.append({'id': f"{game_card.id}-english", 'word': game_card.english_word})
+    
+    # Shuffle the cards again for the game layout
     random.shuffle(cards)
 
-    return render(request, 'memory_game.html', {'cards': cards})
+    # Pass the shuffled cards to the template
+    return render(request, 'memory_game.html', {'cards': cards, 'total_pairs': len(game_cards)})
