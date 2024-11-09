@@ -20,3 +20,19 @@ def practice(request):
 
 def resources(request):
     return render(request, 'resources.html')
+
+def animals(request):
+    words = Word.objects.filter(category="Animals")
+    return render(request, 'animals.html', {'words': words})
+
+def numbers(request):
+    words = Word.objects.filter(category="Numbers")
+    return render(request, 'numbers.html', {'words': words})
+
+def phrases(request):
+    words = Word.objects.filter(category="Common Phrases")
+    return render(request, 'phrases.html', {'words': words})
+
+def family(request):
+    words = Word.objects.filter(category="Family")
+    return render(request, 'family.html', {'words': words})
