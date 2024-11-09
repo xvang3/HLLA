@@ -1,10 +1,6 @@
 from django.shortcuts import render
 from .models import Word
-<<<<<<< HEAD
-from django.conf import settings
-=======
 import random
->>>>>>> memory_game
 
 def home(request):
     return render(request, 'home.html')
