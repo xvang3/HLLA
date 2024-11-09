@@ -179,6 +179,11 @@ h1 {
     width: 100%; /* Full width on small screens */
     padding: 15px;
   }
+
+  .button-link {
+    width: 45%;  /* Adjust width on smaller screens */
+    height: auto;  /* Let the height adjust based on content */
+  }  
 }
 
 /* Flashcard container to organize cards */
@@ -234,6 +239,39 @@ h1 {
 .card-front p, .card-back p {
   margin: 0;
   font-weight: bold;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.button-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 250px;
+  height: 250px;
+  padding: 30px 20px;
+  background-color: teal; 
+  color: white; 
+  text-align: center;
+  text-decoration: none; 
+  border-radius: 5px; 
+  font-size: 16px; 
+  font-weight: bold;
+  transition: background-color 0.3s ease; 
+  line-height: normal;
+  margin: 10px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.button-link:hover {
+  background-color: #0056b3; 
 }
 
 /* WIP: Left toggle nav menu */

@@ -21,6 +21,21 @@ def practice(request):
 def resources(request):
     return render(request, 'resources.html')
 
+def tones(request):
+    words = Word.objects.filter(category="Tones")
+    return render(request, 'tones.html', {'words': words})
+
+def vowels_consonants(request):
+    return render(request, 'vowels_consonants.html')
+
+def vowels(request):
+    words = Word.objects.filter(category="Vowels")
+    return render(request, 'vowels.html', {'words': words})
+
+def consonants(request):
+    words = Word.objects.filter(category="Consonants")
+    return render(request, 'consonants.html', {'words': words})
+
 def animals(request):
     words = Word.objects.filter(category="Animals")
     return render(request, 'animals.html', {'words': words})
