@@ -18,12 +18,13 @@
     position: sticky;
     top: 0;
     z-index: 999;
+    padding: 0 20px;
 }
 
 /* Structure navbar items in containers */
 .navbar__container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   height: 80px;
   z-index: 1;
   width: 100%;
@@ -51,6 +52,7 @@
   align-items: center;
   list-style: none;
   text-align: center;
+  gap: 2rem;
 }
 
 .navbar__item {
@@ -98,6 +100,136 @@
 .navbar__links:hover {
   color: #f77062;
   transition: all 0.3s ease;
+}
+
+ /* Footer */
+ footer {
+  background-color: #464A96;
+  font-size: smaller;
+  color: whitesmoke;
+  padding: 10px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem; /* smaller font size for better appearance */
+}
+
+/* Styling content block */
+.content {
+  padding: 25px;
+  border: 5px solid black; /* Border for format viewing purposes, possibly remove later */
+  margin: 0 auto;
+  width: 90%; /* Use percentages for flexible layout */
+}
+
+/* Responsive design using media queries */
+@media (max-width: 1200px) {
+  /* Adjusts the width of the navbar container for medium screens */
+  .navbar__container {
+    padding: 0 20px;
+  }
+
+  /* Make the navbar items stack on smaller screens */
+  .navbar__menu {
+    gap: 1.5rem;
+    font-size: 1.1rem; 
+  }
+
+  .navbar__item {
+    margin-bottom: 10px;
+  }
+
+  .button {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  /* For very small screens (like phones) */
+  .navbar {
+    font-size: 1rem; /* Smaller text size on small screens */
+    padding: 0 10px;
+  }
+
+  .navbar__container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar__menu {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .navbar__links {
+    padding: 0.5rem;
+    width: 100%; /* Make links take up the full width */
+  }
+
+  .content {
+    width: 100%; /* Full width on small screens */
+    padding: 15px;
+  }
+}
+
+/* Flashcard container to organize cards */
+.flashcard-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+/* Flashcard styles */
+.card-wrapper {
+  width: 25rem;
+  height: 250px;
+  perspective: 1000px;
+}
+
+.card-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.19);
+  cursor: pointer;
+}
+
+.card-wrapper:hover .card-body {
+  transform: rotateX(180deg);
+}
+
+.card-front, .card-back {
+  background-color: #ffffff;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  padding: 1rem;
+  flex-direction: column;
+}
+
+.card-back {
+  transform: rotateX(180deg);
+}
+
+/* Style for text on the cards */
+.card-front p, .card-back p {
+  margin: 0;
+  font-weight: bold;
 }
 
 /* WIP: Left toggle nav menu */
