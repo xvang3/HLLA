@@ -8,7 +8,7 @@ def play_audio_test(request):
     words = Word.objects.all()  # Retrieve all Word objects from the database
     return render(request, 'play_audio_test.html', {'words': words})
 
-def about(request):
+def about(request): #take out if not added later
     return render(request, 'about.html')
 
 def courses(request):
@@ -71,14 +71,46 @@ def p3_phrases(request):
     words = Word.objects.filter(category="Common Phrases")
     return render(request, 'practice/p3_phrases.html', {'words': words})
 
+def p3_phrases_cards(request):
+    words = Word.objects.filter(category="Common Phrases")
+    return render(request, 'practice/p3_phrases_cards.html', {'words': words})
+
+def p3_phrases_audio(request):
+    words = Word.objects.filter(category="Common Phrases")
+    return render(request, 'practice/p3_phrases_audio.html', {'words': words})
+
 def p4_numbers(request):
     words = Word.objects.filter(category="Numbers")
     return render(request, 'practice/p4_numbers.html', {'words': words})
+
+def p4_numbers_cards(request):
+    words = Word.objects.filter(category="Numbers")
+    return render(request, 'practice/p4_numbers_cards.html', {'words': words})
+
+def p4_numbers_audio(request):
+    words = Word.objects.filter(category="Numbers")
+    return render(request, 'practice/p4_numbers_audio.html', {'words': words})
 
 def p5_family(request):
     words = Word.objects.filter(category="Family")
     return render(request, 'practice/p5_family.html', {'words': words})
 
+def p5_family_cards(request):
+    words = Word.objects.filter(category="Family")
+    return render(request, 'practice/p5_family_cards.html', {'words': words})
+
+def p5_family_audio(request):
+    words = Word.objects.filter(category="Family")
+    return render(request, 'practice/p5_family_audio.html', {'words': words})
+
 def p6_animals(request):
     words = Word.objects.filter(category="Animals")
     return render(request, 'practice/p6_animals.html', {'words': words})
+
+def p6_animals_cards(request):
+    words = Word.objects.filter(category="Animals")
+    return render(request, 'practice/p6_animals_cards.html', {'words': words})
+
+def p6_animals_audio(request):
+    words = Word.objects.filter(category="Animals")
+    return render(request, 'practice/p6_animals_audio.html', {'words': words})

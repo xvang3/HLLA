@@ -1,0 +1,22 @@
+<!-- phrases.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Common Phrases Pronunciations</h1>
+
+{% for word in words %}
+    <li>
+        <strong>{{ word.english_word }} - {{ word.hmong_word }}</strong><br>
+        <audio controls>
+            <source src="{{ MEDIA_URL }}{{ word.male_audio_url }}" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        <audio controls>
+            <source src="{{ MEDIA_URL }}{{ word.female_audio_url }}" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+    </li>
+{% endfor %}
+
+{% endblock %}
