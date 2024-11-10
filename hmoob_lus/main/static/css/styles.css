@@ -125,7 +125,7 @@ h1 {
 .content {
   padding: 25px;
   border: 5px solid black; /* Border for format viewing purposes, possibly remove later */
-  margin: 0 auto;
+  margin: 0 auto 34px;
   width: 90%; /* Use percentages for flexible layout */
 }
 
