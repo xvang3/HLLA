@@ -332,7 +332,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: large;
+  font-size: xx-large;   /* doesn't seem to be applied */
   padding: 1rem;
   flex-direction: column;
 }
