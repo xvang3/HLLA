@@ -1,13 +1,9 @@
-<!-- practice.html -->
+<!-- phrases.html -->
 {% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
-<h1>Practice</h1>
-<a href="{% url 'p4_phrases' %}">Practice Common Phrases</a><br>
-<a href="{% url 'p5_numbers' %}">Practice Numbers</a><br>
-<a href="{% url 'p6_family' %}">Practice Family Members</a><br>
-<a href="{% url 'p7_animals' %}">Practice Animals</a><br>
+<h1>Common Phrases</h1>
 
 <div id="flashcard-container" class="flashcard-container">
     {% for word in words %}
