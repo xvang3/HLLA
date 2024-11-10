@@ -4,6 +4,7 @@
 
 {% block content %}
 <h1>Practice</h1>
+<<<<<<< HEAD
 <a href="{% url 'p4_phrases' %}">Practice Common Phrases</a><br>
 <a href="{% url 'p5_numbers' %}">Practice Numbers</a><br>
 <a href="{% url 'p6_family' %}">Practice Family Members</a><br>
@@ -24,6 +25,14 @@
         </div>
     </div>
     {% endfor %}
+=======
+>>>>>>> b5d8380c34d9810d4f4f3caffc6eabf042ccd5f3
 
+<div class="button-container">
+    <a href="{% url 'p4_phrases' %}" class="button-link">Practice Common Phrases</a>
+    <a href="{% url 'p5_numbers' %}" class="button-link">Practice Numbers</a>
+    <a href="{% url 'p6_family' %}" class="button-link">Practice Family Members</a>
+    <a href="{% url 'p7_animals' %}" class="button-link">Practice Animals</a>
 </div>
+
 {% endblock %}
