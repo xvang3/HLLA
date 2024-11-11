@@ -7,6 +7,15 @@ function flipCard(card) {
         card.classList.add('flipped');
         flippedCards.push(card);
 
+        // play audio if the cards are Hmong words, using the audio "url"
+        const cardType = card.getAttribute('data-type');
+        const audioUrl = card.getAttribute('data-audio-url');
+
+        if (cardType === 'hmong' && audioUrl) {
+            const audio = new Audio(audioUrl);
+            audio.play();
+        }
+
         // If two cards are flipped, check for a match
         if (flippedCards.length === 2) {
             setTimeout(checkForMatch, 500);
@@ -32,16 +41,28 @@ function checkForMatch() {
 
         // Check for win condition based on total pairs
         if (matchedPairs === totalPairs) {
-            setTimeout(() => alert('Congratulations! You matched all pairs!'), 300);
+            setTimeout(() => displayPlayAgainButton(), 300);
         }
     } else {
         // No match, flip back after a short delay
         card1.classList.remove('flipped');
         card2.classList.remove('flipped');
-        
+
         console.log("No match, cards flipped back.");
     }
 
     // Reset flipped cards array for the next turn
     flippedCards = [];
+}
+
+// added a play again button just to formally reset instead of just refreshing the page manually
+function displayPlayAgainButton() {
+    const gameContainer = document.querySelector('.container.text-center.my-5');
+    const button = document.createElement('button');
+    button.textContent = "Play Again";
+    button.className = "btn btn-primary mt-4";
+    button.onclick = () => location.reload();
+    gameContainer.appendChild(button);
+
+    alert("Congratulations! You've matched all pairs!");
 }
