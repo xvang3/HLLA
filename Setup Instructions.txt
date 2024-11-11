@@ -1,0 +1,7 @@
+Mac/Linux Users:
+Run the following commands:
+1) chmod +x setup_and_run.sh
+2) ./setup_and_run.sh
+
+Windows:
+Double Click setup_and_run.bat
