@@ -3,20 +3,54 @@
 {% load static %}
 
 {% block content %}
-<h1>Numbers</h1>
+<h1>Numbers Pronunciations</h1>
 
 {% for word in words %}
-    <li>
+    <div class="category-container">
         <strong>{{ word.english_word }} - {{ word.hmong_word }}</strong><br>
-        <audio controls>
-            <source src="{{ MEDIA_URL }}{{ word.male_audio_url }}" type="audio/wav">
-            Your browser does not support the audio element.
-        </audio>
-        <audio controls>
-            <source src="{{ MEDIA_URL }}{{ word.female_audio_url }}" type="audio/wav">
-            Your browser does not support the audio element.
-        </audio>
-    </li>
+
+        <!-- image retrieval not working -->
+        <img src="{% static 'images/animals/'|add:word.image_filename %}" alt="{{ word.english_word }} image" style="max-width: 300px; margin-bottom: 10px;"> <br>
+        
+        <button class="audio-button" data-audio="{{ MEDIA_URL }}{{ word.male_audio_url }}"> Audio 1 (Male)</button>
+        <button class="audio-button" data-audio="{{ MEDIA_URL }}{{ word.female_audio_url }}"> Audio 2 (Female)</button><br>
+    </div>
 {% endfor %}
+
+{% block extra_css %}
+<style>
+    .audio-button {
+        background-color: #464A96; 
+        color: white; 
+        padding: 12px 24px; 
+        border: none;
+        border-radius: 8px; 
+        cursor: pointer; 
+        font-size: 16px; 
+        transition: background-color 0.3s ease; 
+    }
+
+    .audio-button:hover {
+        background-color: #45a049; 
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.querySelectorAll('.audio-button').forEach(function(button) {
+        button.addEventListener('click', function() {
+            var audioSrc = button.getAttribute('data-audio');
+            var audioElement = new Audio(audioSrc);
+            audioElement.play();
+            button.textContent = "Playing..."; 
+
+            audioElement.onended = function() {
+                button.textContent = "Repeat"; 
+            };
+        });
+    });
+</script>
+{% endblock %}
 
 {% endblock %}

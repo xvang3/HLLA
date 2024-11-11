@@ -345,6 +345,7 @@ h1 {
 .card-front p, .card-back p {
   margin: 0;
   font-weight: bold;
+  color: black; /* fix: not applying to text color */
 }
 
 .button-container {
