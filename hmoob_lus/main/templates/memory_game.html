@@ -11,7 +11,12 @@
 
 <div id="game-board" class="container d-flex flex-wrap justify-content-center">
     {% for card in cards %}
-        <div class="card mb-4 mx-2" data-word="{{ card.word }}" data-id="{{ card.id }}" onclick="flipCard(this)">
+        <div class="card mb-4 mx-2" 
+             data-word="{{ card.word }}" 
+             data-id="{{ card.id }}" 
+             data-type="{{ card.type }}" 
+             {% if card.type == "hmong" %} data-audio-url="{{ card.audio_url }}" {% endif %}
+             onclick="flipCard(this)"> <!-- Added bit to grab appropriate audio -->
             <div class="card-front">?</div>
             <div class="card-back"><span>{{ card.word }}</span></div>
         </div>
@@ -28,3 +33,4 @@
     const totalPairs = {{ total_pairs }};
 </script>
 {% endblock %}
+
