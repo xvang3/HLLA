@@ -7,13 +7,24 @@
     <h1>Hmong Memory Game</h1>
     <p>Match the Hmong words with their English translations!</p>
     <p>Correct Matches: <span id="correct-matches">0</span></p>
+
+    <!-- Container for User Buttons -->
+    <div id="user-buttons" class="container text-center">
+        <button onclick="shuffle()" class="btn btn-primary mt-4">Reset with same words</button>
+        <button onclick="newGame()" class="btn btn-danger mt-4">New Set Refresh</button>
+        <button onclick="revealCards()" class="btn btn-warning mt-4">Show All</button>
+    </div>
 </div>
 
 <div id="game-board" class="container d-flex flex-wrap justify-content-center">
     {% for card in cards %}
-        <div class="card mb-4 mx-2" data-word="{{ card.word }}" data-id="{{ card.id }}" onclick="flipCard(this)">
-            <div class="card-front">?</div>
-            <div class="card-back"><span>{{ card.word }}</span></div>
+        <div class="card mb-4 mx-2" 
+             data-word="{{ card.word }}" 
+             data-id="{{ card.id }}" 
+             data-audio-url="{{ card.audio_url }}"
+             onclick="flipCard(this)">
+            <div class="card-front"></div> <!-- Image shows here initially -->
+            <div class="card-back"><span>{{ card.word }}</span></div> <!-- Word shows when flipped -->
         </div>
     {% endfor %}
 </div>

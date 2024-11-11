@@ -3,15 +3,16 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;  /* Space between cards */
-    max-width: 600px;
+    gap: 10px;  
+    max-width: 1024px;
     margin: auto;
+    margin-bottom: 50px;
 }
 
 /* Card styling */
 .card {
-    width: 120px;  /* Increased size for readability */
-    height: 120px;
+    width: 200px;  /* Increased size for readability */
+    height: 200px;
     position: relative;
     cursor: pointer;
     transform-style: preserve-3d;
@@ -42,16 +43,17 @@
     transform: rotateY(0deg);
 }
 
-/* Back styling (word side) */
+/* Back styling with image */
 .card-back {
-    background-color: #f8f9fa;
-    color: black;
+    background-image: url('{% static "images/elephants_foot_icon_black.png" %}'); /* Path to your image */
+    background-size: cover;  /* Ensure the image covers the entire back */
+    background-position: center;
     transform: rotateY(180deg);
-    opacity: 0;  /* Initially hidden */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;  /* Center-align text */
+    color: black;
     overflow: hidden;
 }
 
