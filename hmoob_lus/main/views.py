@@ -119,7 +119,10 @@ def p3_phrases_cards(request):
 
 def p3_phrases_audio(request):
     words = Word.objects.filter(category="Common Phrases")
-    return render(request, 'practice/p3_phrases_audio.html', {'words': words})
+    return render(request, 'practice/p3_phrases_audio.html', {
+        'words': words,
+        'MEDIA_URL': settings.MEDIA_URL 
+    })
 
 def p4_numbers(request):
     words = Word.objects.filter(category="Numbers")
@@ -131,7 +134,10 @@ def p4_numbers_cards(request):
 
 def p4_numbers_audio(request):
     words = Word.objects.filter(category="Numbers")
-    return render(request, 'practice/p4_numbers_audio.html', {'words': words})
+    return render(request, 'practice/p4_numbers_audio.html', {
+        'words': words,
+        'MEDIA_URL': settings.MEDIA_URL 
+    })
 
 def p5_family(request):
     words = Word.objects.filter(category="Family")
@@ -143,7 +149,10 @@ def p5_family_cards(request):
 
 def p5_family_audio(request):
     words = Word.objects.filter(category="Family")
-    return render(request, 'practice/p5_family_audio.html', {'words': words})
+    return render(request, 'practice/p5_family_audio.html', {
+        'words': words,
+        'MEDIA_URL': settings.MEDIA_URL 
+    })
 
 def p6_animals(request):
     words = Word.objects.filter(category="Animals")
@@ -155,4 +164,7 @@ def p6_animals_cards(request):
 
 def p6_animals_audio(request):
     words = Word.objects.filter(category="Animals")
-    return render(request, 'practice/p6_animals_audio.html', {'words': words})
+    return render(request, 'practice/p6_animals_audio.html', {
+        'words': words,
+        'MEDIA_URL': settings.MEDIA_URL 
+    })
