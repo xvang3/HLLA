@@ -1,3 +1,13 @@
+:root{ /* Color palette -- move root to the top later and apply same colors to everything else */
+  --base-color: #11121a; /* I chose random colors and will adjust them later */
+  --line-color: #42434a;
+  --hover-color: #222533;
+  --text-color: #e6e6ef;
+  --accent-color: #f77062;
+  --secondary-text-color: #b0b3c1;
+  --secondary-color: #464A96;
+}
+
 /* Default style */
 * {
   box-sizing: border-box;
@@ -6,7 +16,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* Style navigation bar and stick it to the top of the page when user scrolls */
+/*** Styling navbar stuff ***/
 .navbar {
     background-color: #464A96;
     overflow: hidden;
@@ -15,7 +25,7 @@
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    position: sticky;
+    position: sticky; /* Stick it to the top of the page when user scrolls */
     top: 0;
     z-index: 999;
     padding: 0 20px;
@@ -76,30 +86,130 @@
   text-align: center;
 }
 
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  padding: 10px 20px;
-  height: 100%;
-  width: auto;
-  border: none;
-  outline: none;
-  border-radius: 4px;
-  background: #C45042;
-  color: #fff;
-  margin-left: 10px;
-}
-
-.button:hover {
-  background: #4837ff;
-  transition: all 0.3s ease;
-}
-
 .navbar__links:hover {
   color: #f77062;
   transition: all 0.3s ease;
+}
+/*** navbar stuff end ***/
+
+html{
+  line-height: 1.5rem;
+}
+
+/*** Styling toggle nav ***/
+.main-content{
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--base-color);
+  color: var(--text-color);
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+#toggle-nav{
+  box-sizing: border-box;
+  height: 100vh;
+  width: 250px;
+  padding: 5px 1em;
+  background-color: var(--base-color);
+  border-right: 1px solid var(--line-color);
+  position: sticky;
+  top: 0;
+  align-self: start;
+  transition: 300ms ease-in-out;
+  overflow: hidden;
+  text-wrap: nowrap;
+}
+#toggle-nav.close{
+  padding: 5px;
+  width: 60px;
+}
+#toggle-nav ul{
+  list-style: none; /* remove default bullet points */
+}
+#toggle-nav > ul > li:first-child{ /* styling the toggle button and logo */
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+  .logo{
+    font-weight: 600;
+  }
+}
+#toggle-nav ul li.active a{
+  color: var(--accent-color);
+
+  svg{
+    fill: var(--accent-color);
+  }
+}
+
+#toggle-nav a, #toggle-nav .dropdown-btn, #toggle-nav .logo{
+  border-radius: .5em;
+  padding: .85em;
+  text-decoration: none;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.dropdown-btn{
+  width: 100%;
+  text-align: left;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+#toggle-nav svg{
+  flex-shrink: 0;
+  fill: var(--text-color);
+}
+#toggle-nav a span, #toggle-nav .dropdown-btn span{
+  flex-grow: 1;
+}
+
+#toggle-nav a:hover, #toggle-nav .dropdown-btn:hover{
+  background-color: var(--hover-color);
+}
+#toggle-nav .sub-menu{
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: 300ms ease-in-out;
+
+  > div{
+    overflow: hidden;
+  }
+}
+#toggle-nav .sub-menu.show{
+  grid-template-rows: 1fr;
+}
+.dropdown-btn svg{
+  transition: 200ms ease;
+}
+.rotate svg:last-child{
+  rotate: 90deg;
+}
+#toggle-nav .sub-menu a{
+  padding-left: 2em;
+}
+#toggle-btn{
+  margin-left: auto;
+  padding: 1em;
+  border: none;
+  border-radius: .5em;
+  background: none;
+  cursor: pointer;
+
+  svg{
+    transition: 150ms ease;
+  }
+
+  toggle-btn:hover{
+    background-color: var(--hover-color);
+  }
+}
+/*** toggle-nav stuff end ***/
+
+h1 {
+  text-align: center;
 }
 
  /* Footer */
@@ -121,7 +231,7 @@
 .content {
   padding: 25px;
   border: 5px solid black; /* Border for format viewing purposes, possibly remove later */
-  margin: 0 auto;
+  margin: 0 auto 34px;
   width: 90%; /* Use percentages for flexible layout */
 }
 
@@ -175,6 +285,11 @@
     width: 100%; /* Full width on small screens */
     padding: 15px;
   }
+
+  .button-link {
+    width: 45%;  /* Adjust width on smaller screens */
+    height: auto;  /* Let the height adjust based on content */
+  }  
 }
 
 /* Flashcard container to organize cards */
@@ -217,7 +332,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: large;
+  font-size: xx-large;   /* doesn't seem to be applied */
   padding: 1rem;
   flex-direction: column;
 }
@@ -230,6 +345,38 @@
 .card-front p, .card-back p {
   margin: 0;
   font-weight: bold;
+  color: black; /* fix: not applying to text color */
 }
 
-/* WIP: Left toggle nav menu */
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.button-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 250px;
+  height: 250px;
+  padding: 30px 20px;
+  background-color: teal; 
+  color: white; 
+  text-align: center;
+  text-decoration: none; 
+  border-radius: 5px; 
+  font-size: 16px; 
+  font-weight: bold;
+  transition: background-color 0.3s ease; 
+  line-height: normal;
+  margin: 10px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.button-link:hover {
+  background-color: #0056b3; 
+}

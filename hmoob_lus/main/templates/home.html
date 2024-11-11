@@ -12,12 +12,11 @@
 <body>
     {% block content %}
     <h1>Welcome to Hmong Language Learning</h1>
-    <nav>
-        <ul>
-            <li><a href="{% url 'audio_test' %}">Play Audio Test</a></li>
-            <!-- Add more links as needed -->
-        </ul>
-    </nav>
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <img src="{% static 'images/NoSpeechBubble.PNG' %}" alt="No Speech Bubble Hmong Avatar" style="width: 300px;">
+    </div>        
+
     {% endblock %}
 </body>
 </html>

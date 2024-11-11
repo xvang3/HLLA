@@ -1,0 +1,54 @@
+<!-- base_audio.html -->
+{% load static %}
+{% block content %}
+<div class="audio-container">
+    {% for word in words %}
+    <div class="category-container">
+        <strong>{{ word.english_word }} - {{ word.hmong_word }}</strong><br>
+
+        <!-- image retrieval not working -->
+        <img src="{% static 'images/animals/'|add:word.image_filename %}" alt="{{ word.english_word }}" style="max-width: 300px; margin-bottom: 10px;"><br>
+        
+        <button class="audio-button" data-audio="{{ MEDIA_URL }}{{ word.male_audio_url }}"> Audio 1 (Male)</button>
+        <button class="audio-button" data-audio="{{ MEDIA_URL }}{{ word.female_audio_url }}"> Audio 2 (Female)</button><br>
+    </div>
+    {% endfor %}
+</div>
+
+{% block extra_css %}
+<style>
+    .audio-button {
+        background-color: #464A96;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .audio-button:hover {
+        background-color: #45a049;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.querySelectorAll('.audio-button').forEach(function(button) {
+        button.addEventListener('click', function() {
+            var audioSrc = button.getAttribute('data-audio');
+            var audioElement = new Audio(audioSrc);
+            audioElement.play();
+            button.textContent = "Playing..."; 
+
+            audioElement.onended = function() {
+                button.textContent = "Repeat"; 
+            };
+        });
+    });
+</script>
+{% endblock %}
+
+{% endblock %}

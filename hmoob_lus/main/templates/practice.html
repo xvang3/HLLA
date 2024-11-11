@@ -5,21 +5,13 @@
 {% block content %}
 <h1>Practice</h1>
 
-<div id="flashcard-container" class="flashcard-container">
-    {% for word in words %}
-    <div class="card-wrapper">
-        <div class="card-body">
-            <!-- Front of the card displays english -->
-            <div class="card-front">
-                <p>{{ word.english_word }}</p>
-            </div>
-            <!-- Back of the card displays hmong -->
-            <div class="card-back">
-                <p>{{ word.hmong_word }}</p>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
-
+<div class="button-container">
+    <a href="{% url 'p1_tones' %}" class="button-link">Practice Tones</a>
+    <a href="{% url 'p2_vowels_consonants' %}" class="button-link">Practice Vowels + Consonants</a>
+    <a href="{% url 'p3_phrases' %}" class="button-link">Practice Common Phrases</a>
+    <a href="{% url 'p4_numbers' %}" class="button-link">Practice Numbers</a>
+    <a href="{% url 'p5_family' %}" class="button-link">Practice Family Members</a>
+    <a href="{% url 'p6_animals' %}" class="button-link">Practice Animals</a>
 </div>
+
 {% endblock %}

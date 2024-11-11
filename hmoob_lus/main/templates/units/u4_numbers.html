@@ -1,0 +1,13 @@
+<!-- numbers.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Numbers</h1>
+
+<div class="button-container"></div>
+<a href="{% url 'p4_numbers_cards' %}" class="button-link">Flashcards</a>
+<a href="{% url 'p4_numbers_audio' %}" class="button-link">Pronunciations</a>
+</div>
+
+{% endblock %}
