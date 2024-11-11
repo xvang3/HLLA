@@ -30,20 +30,22 @@ def memory_game(request):
     #Get a random sample of words from the Word model
     words = list(Word.objects.all())
     random.shuffle(words)
-    
-    
+
+
     #Take the first 6 words (3 pairs)
     game_cards = words[:6]
     cards = []
 
     for game_card in game_cards:
+        audio_url = f"{settings.MEDIA_URL}{random.choice([game_card.male_audio_url, game_card.female_audio_url])}"
+
         cards.append({
             'id': f"{game_card.id}-hmong",
             'word': game_card.hmong_word,
             'type': 'hmong',
-            'audio_url': f"{settings.MEDIA_URL}{game_card.male_audio_url}"
+            'audio_url': audio_url
         })
-        
+
         # Each word is added twice with unique IDs for matching purposes
         cards.append({
             'id': f"{game_card.id}-english",
