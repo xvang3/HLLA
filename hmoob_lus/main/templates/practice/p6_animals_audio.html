@@ -3,18 +3,48 @@
 {% load static %}
 
 {% block content %}
-<h1>Animals</h1>
+<h1>
+    <a href="{% url 'practice' %}" class="heading-link">Practice</a>
+     > 
+    <a href="{% url 'p6_animals' %}" class="heading-link">Unit 6: Animals</a>
+     > 
+    <a href="{% url 'p6_animals_audio' %}" class="heading-link">Pronunciation</a>
+</h1>
+
+<div id="pronunciation-practice">
+    <!-- Display Hmong word -->
+    <h2 id="hmong-word">Click "New Word" to start!</h2>
+
+    <!-- Audio playback buttons for male and female pronunciations -->
+    <button id="play-male-audio" disabled>Play Male</button>
+    <button id="play-female-audio" disabled>Play Female</button>
+
+    <!-- New word button -->
+    <button id="new-word">New Word</button>
+
+    <!-- Record and playback user recording -->
+    <button id="start-recording">🔴 Record</button>
+    <button id="play-recording" disabled>▶️ Play Recording</button>
+</div>
+
+<!-- Hidden list of words and audio sources to be accessed via JavaScript -->
+<ul id="word-list" style="display: none;">
+    {% for word in words %}
+    <li data-english="{{ word.english_word }}" data-hmong="{{ word.hmong_word }}" 
+        data-male-audio="{{ MEDIA_URL }}{{ word.male_audio_url }}" 
+        data-female-audio="{{ MEDIA_URL }}{{ word.female_audio_url }}">
+    </li>
+    {% endfor %}
+</ul>
 
 {% for word in words %}
     <li>
         <strong>{{ word.english_word }} - {{ word.hmong_word }}</strong><br>
         <audio controls>
             <source src="{{ MEDIA_URL }}{{ word.male_audio_url }}" type="audio/wav">
-            Your browser does not support the audio element.
         </audio>
         <audio controls>
             <source src="{{ MEDIA_URL }}{{ word.female_audio_url }}" type="audio/wav">
-            Your browser does not support the audio element.
         </audio>
     </li>
 {% endfor %}

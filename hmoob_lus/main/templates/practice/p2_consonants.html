@@ -3,7 +3,13 @@
 {% load static %}
 
 {% block content %}
-<h1>Consonants</h1>
+<h1>
+    <a href="{% url 'practice' %}" class="heading-link">Practice</a>
+    > 
+   <a href="{% url 'p2_vowels_consonants' %}" class="heading-link">Unit 2</a>
+    > 
+   <a href="{% url 'p2_consonants' %}" class="heading-link">Consonants</a>
+</h1>
 
 <p>Work in progress...</p>
 

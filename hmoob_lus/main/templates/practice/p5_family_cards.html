@@ -3,7 +3,13 @@
 {% load static %}
 
 {% block content %}
-<h1>Family Members</h1>
+<h1>
+    <a href="{% url 'practice' %}" class="heading-link">Practice</a>
+     > 
+    <a href="{% url 'p5_family' %}" class="heading-link">Unit 5: Family Members</a>
+     > 
+    <a href="{% url 'p5_family_cards' %}" class="heading-link">Pronunciation</a>
+</h1>
 
 <div id="flashcard-container" class="flashcard-container">
     {% for word in words %}

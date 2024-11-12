@@ -1,10 +1,31 @@
-:root{ /* Color palette -- move root to the top later and apply same colors to everything else */
+/* TODO:
+General
+ - Add image_url field with image paths to words (add into models.py, and populate field with image paths in Django admin)
+ - Fix sizing of Unit buttons to be smaller (the huge size makes the screen feel too closed in)
+ - Fix padding between elements (heading, Unit buttons, pronunciation buttons, etc.)
+
+Toggle-nav
+ - Side nav should stay in the state the user has it in (open or closed) regardless if they change pages
+ - When opening the website, the side nav should be closed by default
+ - Menu icon should show when side nav is closed and transition into X icon when side nav is open
+ - Side nav should be scrollable when submenus are open (right now can't scroll down to see bottom units when practice submenu is open)
+
+Flashcards
+ - Need to style Unit flashcards: Units should have front-facing-only flashcards with English-Hmong on top, image in the middle, and two buttons on the bottom of the card for both male and female audio of the Hmong word
+ - Flashcards in the Practice tab should have an image, English word, and flip button on it, and on the flipside will be the same image, then the Hmong word, and the flip button. Flip button will flip the flashcard on click.
+
+Pronunciation Practice
+ - Style Pronunciation Practice page: Hmong word in the middle with a play audio button and beneath it is a huge red dot for the record button and play button for playback of the user's recording.
+*/
+
+/* Color palette */
+:root{
   --base-color: #11121a; /* I chose random colors and will adjust them later */
   --line-color: #42434a;
   --hover-color: #222533;
   --text-color: #e6e6ef;
   --accent-color: #f77062;
-  --secondary-text-color: #b0b3c1;
+  --secondary-text-color: #272727;
   --secondary-color: #464A96;
 }
 
@@ -16,7 +37,8 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/*** Styling navbar stuff ***/
+/* --- Styling navbar stuff --- */
+
 .navbar {
     background-color: #464A96;
     overflow: hidden;
@@ -79,24 +101,17 @@
   height: 100%;
 }
 
-.navbar__button {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  text-align: center;
-}
-
 .navbar__links:hover {
   color: #f77062;
   transition: all 0.3s ease;
 }
-/*** navbar stuff end ***/
+/* --- navbar stuff end --- */
 
 html{
   line-height: 1.5rem;
 }
 
-/*** Styling toggle nav ***/
+/* --- Styling toggle nav --- */
 .main-content{
   min-height: 100vh;
   min-height: 100dvh;
@@ -206,7 +221,7 @@ html{
     background-color: var(--hover-color);
   }
 }
-/*** toggle-nav stuff end ***/
+/* --- toggle-nav stuff end --- */
 
 h1 {
   text-align: center;
@@ -235,7 +250,7 @@ h1 {
   width: 90%; /* Use percentages for flexible layout */
 }
 
-/* Responsive design using media queries */
+/* --- Responsive design using media queries --- */
 @media (max-width: 1200px) {
   /* Adjusts the width of the navbar container for medium screens */
   .navbar__container {
@@ -291,6 +306,10 @@ h1 {
     height: auto;  /* Let the height adjust based on content */
   }  
 }
+/* --- Media queries end --- */
+
+
+/* --- Styling flashcards --- */
 
 /* Flashcard container to organize cards */
 .flashcard-container {
@@ -345,6 +364,7 @@ h1 {
 .card-front p, .card-back p {
   margin: 0;
   font-weight: bold;
+  color: var(--secondary-text-color);
 }
 
 .button-container {
@@ -378,4 +398,15 @@ h1 {
 
 .button-link:hover {
   background-color: #0056b3; 
+}
+
+.heading-link {
+  color: #fff;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.heading-link:hover {
+  color: #f77062;
+  transition: all 0.3s ease;
 }

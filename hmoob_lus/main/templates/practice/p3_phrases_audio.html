@@ -3,7 +3,13 @@
 {% load static %}
 
 {% block content %}
-<h1>Common Phrases Pronunciations</h1>
+<h1>
+    <a href="{% url 'practice' %}" class="heading-link">Practice</a>
+     > 
+    <a href="{% url 'p3_phrases' %}" class="heading-link">Unit 3: Common Phrases</a>
+     > 
+    <a href="{% url 'p3_phrases_audio' %}" class="heading-link">Pronunciation</a>
+</h1>
 
 {% for word in words %}
     <li>
