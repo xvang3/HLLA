@@ -1,4 +1,4 @@
-# Capstone Project: Hmong Language Learning Application - Hmong Roots
+# Hmong Language Learning Application - Hmong Roots
 By Shanelle Almario, Asia Brooks, Gaozong Lo, Xue Vang
 
 
