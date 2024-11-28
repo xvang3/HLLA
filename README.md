@@ -1,6 +1,6 @@
 
 <div align="center">
-  <h3 align="center">Capstone Project: Hmong Language Learning Application - Hmong Roots</h3>
+  <h3 align="center">Hmong Language Learning Application - Hmong Roots</h3>
 
   <p align="center">
    Developed by: Shanelle Almario, Asia Brooks, Gaozong Lo, Xue Vang
