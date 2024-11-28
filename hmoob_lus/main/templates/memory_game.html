@@ -17,7 +17,7 @@
              data-type="{{ card.type }}" 
              {% if card.type == "hmong" %} data-audio-url="{{ card.audio_url }}" {% endif %}
              onclick="flipCard(this)"> <!-- Added bit to grab appropriate audio -->
-            <div class="card-front">?</div>
+            <div class="card-front"></div>
             <div class="card-back"><span>{{ card.word }}</span></div>
         </div>
     {% endfor %}
