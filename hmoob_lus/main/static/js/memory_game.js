@@ -52,7 +52,7 @@ function checkForMatch() {
 
         // Check for win condition based on total pairs
         if (matchedPairs === totalPairs) {
-            setTimeout(() => displayPlayAgainButton(), 300);
+            setTimeout(() => displayPlayAgainPopup(), 300);
         }
     } else {
         // No match, flip back after a short delay
@@ -67,12 +67,45 @@ function checkForMatch() {
 }
 
 // added a play again button just to formally reset instead of just refreshing the page manually
-function displayPlayAgainButton() {
-    const gameContainer = document.querySelector('.container.text-center.my-5');
-    const button = document.createElement('button');
-    button.textContent = "Play Again";
-    button.className = "btn btn-primary mt-4";
-    button.onclick = () => location.reload();
-    gameContainer.appendChild(button);
+function displayPlayAgainPopup() {
+    // Create popup container
+    const popup = document.createElement('div');
+    popup.className = 'popup-container';
 
-    alert("Congratulations! You've matched all pairs!");
+    // Add avatar image
+    const img = document.createElement('img');
+    img.src = "/static/images/rep_talking.PNG";
+    img.alt = "Congratulations Avatar";
+
+    // Add message
+    const message = document.createElement('div');
+    message.className = 'message';
+    message.textContent = "Great Job! Play Again?";
+
+    // Add play again button
+    const button = document.createElement('button');
+    button.className = 'play-again-btn';
+    button.textContent = "Play Again";
+    button.onclick = () => location.reload(); // Reload page to start again
+
+    // Append elements to popup
+    popup.appendChild(img);
+    popup.appendChild(message);
+    popup.appendChild(button);
+
+    // Append popup to the game-board for relative positioning
+    const gameBoard = document.getElementById('game-board');
+    gameBoard.appendChild(popup);
+
+    // Adjust popup position dynamically
+    const boardRect = gameBoard.getBoundingClientRect();
+    popup.style.left = `${boardRect.width / 2 - popup.offsetWidth / 2}px`;
+    popup.style.top = `${boardRect.top + boardRect.height / 3 - 500}px`;
+
+
+}
+
+// Update the win condition to call the new popup
+if (matchedPairs === totalPairs) {
+    setTimeout(() => displayPlayAgainPopup(), 300);
+}
