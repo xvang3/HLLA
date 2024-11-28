@@ -6,6 +6,8 @@
     gap: 15px;  /* Space between cards */
     max-width: 600px;
     margin: auto;
+    position: relative;
+    text-align: center;
 }
 
 /* Card styling */
@@ -76,12 +78,6 @@
 }
 
 /* Matched cards */
-.card.matched {
-    background-color: lightgreen;
-    pointer-events: none;  /* Disable clicking on matched cards */
-}
-
-/* Matched cards */
 .card.matched .card-back{
     background-color: #61C865 !important; /* Distinct green */
     animation: bounce 0.5s ease-out; /* Add bounce animation */
@@ -95,4 +91,52 @@
     50% {
         transform: scale(1.2);
     }
+}
+
+.popup-container {
+    position: absolute; /* Position relative to the parent (#game-board) */
+    top: 50%;
+    background-color: #3cb89b;
+    border: 10px solid #464A96;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 80%; /* Responsive sizing */
+    z-index: 10; /* Ensure it appears above other elements */
+}
+
+.popup-container img {
+    width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+/* Speech bubble styling */
+.popup-container .message {
+    position: absolute;
+    top: 15%;
+    left: 48%;
+    width: 45%;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9em; 
+    text-align: center;
+    z-index: 1010;
+}
+
+.popup-container .play-again-btn {
+    background-color: #464A96;
+    color: white;
+    border: 5px solid #464A96;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.popup-container .play-again-btn:hover {
+    background-color: #3F4287;
 }
