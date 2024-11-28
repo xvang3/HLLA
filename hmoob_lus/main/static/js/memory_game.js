@@ -18,7 +18,7 @@ function flipCard(card) {
 
         // If two cards are flipped, check for a match
         if (flippedCards.length === 2) {
-            setTimeout(checkForMatch, 500);
+            setTimeout(checkForMatch, 2000); //added delay
         }
     }
 }
@@ -35,6 +35,17 @@ function checkForMatch() {
         matchedPairs += 1;
         card1.classList.add('matched');
         card2.classList.add('matched');
+
+        // Add a bounce animation and color change
+        card1.style.animation = "bounce 0.5s";
+        card2.style.animation = "bounce 0.5s";
+
+        // Ensure background color changes are applied last
+        setTimeout(() => {
+            card1.style.backgroundColor = "#61C865"; // Green for match
+            card2.style.backgroundColor = "#61C865";
+        }, 500); // Delay to avoid overlap with animation
+
         document.getElementById('correct-matches').textContent = matchedPairs;
 
         console.log("Match found! Total matches:", matchedPairs);
@@ -65,4 +76,3 @@ function displayPlayAgainButton() {
     gameContainer.appendChild(button);
 
     alert("Congratulations! You've matched all pairs!");
-}

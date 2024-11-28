@@ -80,3 +80,19 @@
     background-color: lightgreen;
     pointer-events: none;  /* Disable clicking on matched cards */
 }
+
+/* Matched cards */
+.card.matched .card-back{
+    background-color: #61C865 !important; /* Distinct green */
+    animation: bounce 0.5s ease-out; /* Add bounce animation */
+}
+
+/* Bounce animation keyframes */
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
