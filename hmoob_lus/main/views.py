@@ -95,8 +95,19 @@ def u6_animals(request):
     return render(request, 'units/u6_animals.html', {'words': words})
 
 def p1_tones(request):
-    words = Word.objects.filter(category="Tones")
+    words = Word.objects.filter(category="Tone Markers")
     return render(request, 'practice/p1_tones.html', {'words': words})
+
+def p1_tones_cards(request):
+    words = Word.objects.filter(category="Tone Markers")
+    return render(request, 'practice/p1_tones_cards.html', {'words': words})
+
+def p1_tones_audio(request):
+    words = Word.objects.filter(category="Tone Markers")
+    return render(request, 'practice/p1_tones_audio.html', {
+        'words': words,
+        'MEDIA_URL': settings.MEDIA_URL 
+    })
 
 def p2_vowels_consonants(request):
     return render(request, 'practice/p2_vowels_consonants.html')

@@ -3,8 +3,11 @@
 {% load static %}
 
 {% block content %}
-<h1>Consonants</h1>
+<h1>Single Consonants</h1>
 
-<p>Work in progress...</p>
+<div class="button-container"></div>
+<a href="{% url 'p2_consonants_cards' %}" class="button-link">Flashcards</a>
+<a href="{% url 'p2_consonants_audio' %}" class="button-link">Pronunciations</a>
+</div>
 
 {% endblock %}

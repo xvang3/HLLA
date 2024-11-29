@@ -31,6 +31,8 @@ urlpatterns = [
     path('units/u6_animals/', views.u6_animals, name='u6_animals'),    
 
     path('practice/p1_tones/', views.p1_tones, name='p1_tones'), # Practice Units
+    path('practice/p1_tones_cards/', views.p1_tones_cards, name='p1_tones_cards'),
+    path('practice/p1_tones_audio/', views.p1_tones_audio, name='p1_tones_audio'), 
     path('practice/p2_vowels_and_consonants/', views.u2_vowels_consonants, name='p2_vowels_consonants'),
     path('practice/p2_vowels/', views.p2_vowels, name='p2_vowels'),
     path('practice/p2_consonants/', views.p2_consonants, name='p2_consonants'),
