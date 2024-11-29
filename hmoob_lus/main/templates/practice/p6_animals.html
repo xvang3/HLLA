@@ -3,9 +3,13 @@
 {% load static %}
 
 {% block content %}
-<h1>Animals</h1>
+<h1>
+    <a href="{% url 'practice' %}" class="heading-link">Practice</a>
+     > 
+    <a href="{% url 'p6_animals' %}" class="heading-link">Unit 6: Animals</a>
+</h1>
 
-<div class="button-container"></div>
+<div class="button-container">
 <a href="{% url 'p6_animals_cards' %}" class="button-link">Flashcards</a>
 <a href="{% url 'p6_animals_audio' %}" class="button-link">Pronunciations</a>
 </div>

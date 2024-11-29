@@ -1,9 +1,15 @@
-<!-- phrases.html -->
+<!-- consonants_audio.html -->
 {% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
-<h1>Common Phrases Pronunciations</h1>
+<h1>
+    <a href="{% url 'practice' %}" class="heading-link">Practice</a>
+     > 
+    <a href="{% url 'p2_consonants' %}" class="heading-link">Unit 2: Single Consonants</a>
+     > 
+    <a href="{% url 'p2_consonants_audio' %}" class="heading-link">Pronunciations</a>
+</h1>
 
 {% for word in words %}
     <div class="category-container">

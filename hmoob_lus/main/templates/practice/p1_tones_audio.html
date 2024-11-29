@@ -3,7 +3,13 @@
 {% load static %}
 
 {% block content %}
-<h1>Tone Markers</h1>
+<h1>
+    <a href="{% url 'practice' %}" class="heading-link">Practice</a>
+     > 
+    <a href="{% url 'p1_tones' %}" class="heading-link">Unit 1: Tone Markers</a>
+     > 
+    <a href="{% url 'p1_tones_audio' %}" class="heading-link">Pronunciations</a>
+</h1>
 
 {% for word in words %}
     <div class="category-container">

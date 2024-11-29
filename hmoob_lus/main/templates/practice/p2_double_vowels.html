@@ -1,13 +1,19 @@
-<!-- vowels.html -->
+<!-- double_vowels.html -->
 {% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
-<h1>Double Vowels</h1>
+<h1>
+    <a href="{% url 'practice' %}" class="heading-link">Practice</a>
+     > 
+    <a href="{% url 'p2_vowels_consonants' %}" class="heading-link">Unit 2: Vowels and Consonants</a>
+     >
+    <a href="{% url 'p2_double_vowels' %}" class="heading-link">Unit 2: Double Vowels</a>
+</h1>
 
-<div class="button-container"></div>
-<a href="{% url 'p3_phrases_cards' %}" class="button-link">Flashcards</a>
-<a href="{% url 'p3_phrases_audio' %}" class="button-link">Pronunciations</a>
+<div class="button-container">
+<a href="{% url 'p2_dVowels_cards' %}" class="button-link">Flashcards</a>
+<a href="{% url 'p2_dVowels_audio' %}" class="button-link">Pronunciations</a>
 </div>
 
 </div>
