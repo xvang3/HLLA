@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls), 
     #path('play-audio/', views.play_audio_test, name='play_audio_test'),  # Keep play_audio_test
     path('', views.home, name='home'),  # Home view remains
-    path('main/', include('main.urls')),  # Include app-level URLs here
+    path('', include('main.urls')),  # Include app-level URLs here
 ]
 
 # Serve media files in development

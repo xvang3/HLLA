@@ -52,7 +52,7 @@
 #navbar__logo {
   display: flex;
   align-items: center;
-  cursor: pointer;
+  cursor: default;
   text-decoration: none;
 }
 
