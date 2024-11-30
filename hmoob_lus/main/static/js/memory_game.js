@@ -1,5 +1,6 @@
 let flippedCards = [];
 let matchedPairs = 0;
+let matchColors = ["#FF6B6B", "#E6E6FA", "#87CEEB" , "#98FF98", "#DAA520", "#F08080", "#61C865", "#FFE066", "#6CCFF6", "#FFA573", "#FF9DE5", "#C69DF1", "#7CDEDC", "#FFD7B5", "#87CEEB"];
 
 function flipCard(card) {
     // Prevent flipping more than two cards or flipping an already matched card
@@ -36,15 +37,20 @@ function checkForMatch() {
         card1.classList.add('matched');
         card2.classList.add('matched');
 
+        const color = matchColors.length > 0 ? matchColors.shift() : "#D3D3D3"; // Default color
+        card1.style.setProperty('--match-color', color);
+        card2.style.setProperty('--match-color', color);
+
         // Add a bounce animation and color change
         card1.style.animation = "bounce 0.5s";
         card2.style.animation = "bounce 0.5s";
 
         // Ensure background color changes are applied last
         setTimeout(() => {
-            card1.style.backgroundColor = "#61C865"; // Green for match
-            card2.style.backgroundColor = "#61C865";
-        }, 500); // Delay to avoid overlap with animation
+            card1.classList.add('matched');
+            card2.classList.add('matched');
+        }, 500); // Apply after animations
+        
 
         document.getElementById('correct-matches').textContent = matchedPairs;
 

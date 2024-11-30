@@ -87,7 +87,12 @@
 
 /* Matched cards */
 .card.matched .card-back{
-    background-color: #87d58a !important; /* Softer green to see how it compares */
+    background-color: var(--match-color, #87d58a) !important; /* Allow dynamic color via JavaScript */
+    opacity: 1; /* Ensure visible */
+    z-index: 3; /* Keep on top */
+}
+
+.card.matched {
     animation: bounce 0.5s ease-out; /* Add bounce animation */
 }
 
