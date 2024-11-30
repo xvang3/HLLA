@@ -1,4 +1,4 @@
-<!-- family.html -->
+<!-- tones_cards.html -->
 {% extends 'base.html' %}
 {% load static %}
 
@@ -6,9 +6,9 @@
 <h1>
     <a href="{% url 'practice' %}" class="heading-link">Practice</a>
      > 
-    <a href="{% url 'p5_family' %}" class="heading-link">Unit 5: Family Members</a>
+    <a href="{% url 'p1_tones' %}" class="heading-link">Unit 1: Tone Markers</a>
      > 
-    <a href="{% url 'p5_family_cards' %}" class="heading-link">Flashcards</a>
+    <a href="{% url 'p1_tones_cards' %}" class="heading-link">Flashcards</a>
 </h1>
 
 <div id="flashcard-container" class="flashcard-container">
@@ -28,4 +28,5 @@
     {% endfor %}
 
 </div>
+
 {% endblock %}

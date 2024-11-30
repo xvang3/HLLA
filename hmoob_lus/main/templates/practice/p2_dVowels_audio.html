@@ -1,4 +1,4 @@
-<!-- phrases.html -->
+<!-- dVowels_audio.html -->
 {% extends 'base.html' %}
 {% load static %}
 
@@ -6,16 +6,15 @@
 <h1>
     <a href="{% url 'practice' %}" class="heading-link">Practice</a>
      > 
-    <a href="{% url 'p3_phrases' %}" class="heading-link">Unit 3: Common Phrases</a>
+    <a href="{% url 'p2_double_vowels' %}" class="heading-link">Unit 2: Double Vowels</a>
      > 
-    <a href="{% url 'p3_phrases_cards' %}" class="heading-link">Pronunciations</a>
+    <a href="{% url 'p2_dVowels_audio' %}" class="heading-link">Pronunciations</a>
 </h1>
 
 {% for word in words %}
     <div class="category-container">
         <strong>{{ word.english_word }} - {{ word.hmong_word }}</strong><br>
 
-        <!-- image retrieval not working -->
         <img src="{% static 'images/animals/'|add:word.image_filename %}" alt="{{ word.english_word }} image" style="max-width: 300px; margin-bottom: 10px;"> <br>
         
         <button class="audio-button" data-audio="{{ MEDIA_URL }}{{ word.male_audio_url }}"> Audio 1 (Male)</button>

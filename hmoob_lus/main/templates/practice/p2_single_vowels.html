@@ -1,4 +1,4 @@
-<!-- vowels_consonants.html -->
+<!-- single_vowels.html -->
 {% extends 'base.html' %}
 {% load static %}
 
@@ -7,12 +7,13 @@
     <a href="{% url 'practice' %}" class="heading-link">Practice</a>
      > 
     <a href="{% url 'p2_vowels_consonants' %}" class="heading-link">Unit 2: Vowels and Consonants</a>
+     >
+    <a href="{% url 'p2_single_vowels' %}" class="heading-link">Unit 2: Single Vowels</a>
 </h1>
 
 <div class="button-container">
-<a href="{% url 'p2_vowels' %}" class="button-link">Single Vowels</a>
-<a href="{% url 'p2_vowels' %}" class="button-link">Double Vowels</a>
-<a href="{% url 'p2_consonants' %}" class="button-link">Consonants</a>
+<a href="{% url 'p2_sVowels_cards' %}" class="button-link">Flashcards</a>
+<a href="{% url 'p2_sVowels_audio' %}" class="button-link">Pronunciations</a>
 </div>
 
 {% endblock %}

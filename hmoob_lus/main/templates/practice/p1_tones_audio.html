@@ -1,14 +1,14 @@
-<!-- phrases.html -->
-{% extends 'base.html' %}
+<!-- tones_audio.html -->
+ {% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
 <h1>
     <a href="{% url 'practice' %}" class="heading-link">Practice</a>
      > 
-    <a href="{% url 'p3_phrases' %}" class="heading-link">Unit 3: Common Phrases</a>
+    <a href="{% url 'p1_tones' %}" class="heading-link">Unit 1: Tone Markers</a>
      > 
-    <a href="{% url 'p3_phrases_cards' %}" class="heading-link">Pronunciations</a>
+    <a href="{% url 'p1_tones_audio' %}" class="heading-link">Pronunciations</a>
 </h1>
 
 {% for word in words %}

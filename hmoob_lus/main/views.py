@@ -95,19 +95,67 @@ def u6_animals(request):
     return render(request, 'units/u6_animals.html', {'words': words})
 
 def p1_tones(request):
-    words = Word.objects.filter(category="Tones")
+    words = Word.objects.filter(category="Tone Markers")
     return render(request, 'practice/p1_tones.html', {'words': words})
+
+def p1_tones_cards(request):
+    words = Word.objects.filter(category="Tone Markers")
+    return render(request, 'practice/p1_tones_cards.html', {'words': words})
+
+def p1_tones_audio(request):
+    words = Word.objects.filter(category="Tone Markers")
+    return render(request, 'practice/p1_tones_audio.html', {
+        'words': words,
+        'MEDIA_URL': settings.MEDIA_URL 
+    })
 
 def p2_vowels_consonants(request):
     return render(request, 'practice/p2_vowels_consonants.html')
 
-def p2_vowels(request):
-    words = Word.objects.filter(category="Vowels")
-    return render(request, 'practice/p2_vowels.html', {'words': words})
+def p2_single_vowels(request):
+    words = Word.objects.filter(category="Single Vowels")
+    return render(request, 'practice/p2_single_vowels.html', {'words': words})
+
+def p2_sVowels_audio(request):
+    words = Word.objects.filter(category="Single Vowels")
+    return render(request, 'practice/p2_sVowels_audio.html', {
+        'words': words,
+        'MEDIA_URL': settings.MEDIA_URL 
+    })
+
+def p2_sVowels_cards(request):
+    words = Word.objects.filter(category="Single Vowels")
+    return render(request, 'practice/p2_sVowels_cards.html', {'words': words})
+
+def p2_double_vowels(request):
+    words = Word.objects.filter(category="Double Vowels")
+    return render(request, 'practice/p2_double_vowels.html', {'words': words})
+
+def p2_dVowels_audio(request):
+    words = Word.objects.filter(category="Single Vowels")
+    return render(request, 'practice/p2_dVowels_audio.html', {
+        'words': words,
+        'MEDIA_URL': settings.MEDIA_URL 
+    })
+
+def p2_dVowels_cards(request):
+    words = Word.objects.filter(category="Single Vowels")
+    return render(request, 'practice/p2_dVowels_cards.html', {'words': words})
 
 def p2_consonants(request):
-    words = Word.objects.filter(category="Consonants")
+    words = Word.objects.filter(category="Consonant")
     return render(request, 'practice/p2_consonants.html', {'words': words})
+
+def p2_consonants_audio(request):
+    words = Word.objects.filter(category="Consonant")
+    return render(request, 'practice/p2_consonants_audio.html', {
+        'words': words,
+        'MEDIA_URL': settings.MEDIA_URL 
+    })
+
+def p2_consonants_cards(request):
+    words = Word.objects.filter(category="Consonant")
+    return render(request, 'practice/p2_consonants_cards.html', {'words': words})
 
 def p3_phrases(request):
     words = Word.objects.filter(category="Common Phrases")
