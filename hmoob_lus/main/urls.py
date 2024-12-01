@@ -10,18 +10,9 @@ urlpatterns = [
     path('courses/', views.courses, name='courses'),  # Course page
     path('practice/', views.practice, name='practice'),  # Practice page
     path('memory-game/', views.memory_game, name='memory_game'),  # Add this line
-    
-    # path('units/u1_tones/', views.u1_tones, name='u1_tones'), # Course Units
-    # path('units/u2_vowels_and_consonants/', views.u2_vowels_consonants, name='u2_vowels_consonants'),
-    # path('units/u2_vowels/', views.u2_vowels, name='u2_vowels'),
-    # path('units/u2_consonants/', views.u2_consonants, name='u2_consonants'),
-    # path('units/u3_phrases/', views.u3_phrases, name='u3_phrases'),
-    # path('units/u4_numbers/', views.u4_numbers, name='u4_numbers'),
-    # path('units/u5_family/', views.u5_family, name='u5_family'),
-    # path('units/u6_animals/', views.u6_animals, name='u6_animals'),
 
     path('units/u1_tones/', views.u1_tones, name='u1_tones'), # Course Units
-    path('units/u2_vowels_and_consonants/', views.u2_vowels_consonants, name='u2_vowels_consonants'),
+    path('units/u2_vowels_consonants/', views.u2_vowels_consonants, name='u2_vowels_consonants'),
     path('units/u2_vowels/', views.u2_vowels, name='u2_vowels'),
     path('units/u2_consonants/', views.u2_consonants, name='u2_consonants'),
     path('units/u3_phrases/', views.u3_phrases, name='u3_phrases'),
@@ -33,7 +24,7 @@ urlpatterns = [
     path('practice/p1_tones_cards/', views.p1_tones_cards, name='p1_tones_cards'),
     path('practice/p1_tones_audio/', views.p1_tones_audio, name='p1_tones_audio'), 
 
-    path('practice/p2_vowels_and_consonants/', views.u2_vowels_consonants, name='p2_vowels_consonants'),
+    path('practice/p2_vowels_consonants/', views.p2_vowels_consonants, name='p2_vowels_consonants'),
     path('practice/p2_single_vowels/', views.p2_single_vowels, name='p2_single_vowels'),
     path('practice/p2_sVowels_audio/', views.p2_sVowels_audio, name='p2_sVowels_audio'),
     path('practice/p2_sVowels_cards/', views.p2_sVowels_cards, name='p2_sVowels_cards'),

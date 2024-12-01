@@ -1,4 +1,5 @@
-:root{ /* Color palette -- move root to the top later and apply same colors to everything else */
+/* Color palette variables */
+:root{
   --base-color: #11121a; /* I chose random colors and will adjust them later */
   --line-color: #42434a;
   --hover-color: #222533;
@@ -77,13 +78,6 @@
   text-decoration: none;
   padding: 0 1rem;
   height: 100%;
-}
-
-.navbar__button {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  text-align: center;
 }
 
 .navbar__links:hover {
@@ -400,4 +394,15 @@ h1 {
 
 .button-link:hover {
   background-color: #0056b3; 
+}
+
+/* heading links styling */
+.heading-link {
+  color: #fff;
+  justify-content: center;
+  text-decoration: none;
+}
+.heading-link:hover {
+  color: var(--accent-color);
+  transition: all 0.3s ease;
 }
