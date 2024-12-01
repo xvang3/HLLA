@@ -143,18 +143,18 @@ def p2_dVowels_cards(request):
     return render(request, 'practice/p2_dVowels_cards.html', {'words': words})
 
 def p2_consonants(request):
-    words = Word.objects.filter(category="Consonant")
+    words = Word.objects.filter(category="Consonants")
     return render(request, 'practice/p2_consonants.html', {'words': words})
 
 def p2_consonants_audio(request):
-    words = Word.objects.filter(category="Consonant")
+    words = Word.objects.filter(category="Consonants")
     return render(request, 'practice/p2_consonants_audio.html', {
         'words': words,
         'MEDIA_URL': settings.MEDIA_URL 
     })
 
 def p2_consonants_cards(request):
-    words = Word.objects.filter(category="Consonant")
+    words = Word.objects.filter(category="Consonants")
     return render(request, 'practice/p2_consonants_cards.html', {'words': words})
 
 def p3_phrases(request):
