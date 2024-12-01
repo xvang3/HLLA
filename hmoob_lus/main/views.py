@@ -13,7 +13,7 @@ def play_audio_test(request):
         'MEDIA_URL': settings.MEDIA_URL 
     })
 
-def about(request): #take out if not added later
+def about(request):
     return render(request, 'about.html')
 
 def courses(request):
@@ -22,9 +22,6 @@ def courses(request):
 def practice(request):
     words = Word.objects.all()  
     return render(request, 'practice.html', {'words': words})
-
-def resources(request):
-    return render(request, 'resources.html')
 
 def memory_game(request):
     #Get a random sample of words from the Word model
