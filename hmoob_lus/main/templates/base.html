@@ -120,5 +120,18 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const cardWrappers = document.querySelectorAll('.card-wrapper');
+      
+          cardWrappers.forEach(function(cardWrapper) {
+            cardWrapper.addEventListener('click', function() {
+              const cardBody = cardWrapper.querySelector('.card-body');
+              cardBody.classList.toggle('flipped');
+            });
+          });
+        });
+      </script>
+      
 </body>
 </html>
