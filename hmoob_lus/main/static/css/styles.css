@@ -29,7 +29,6 @@
     position: sticky; /* Stick it to the top of the page when user scrolls */
     top: 0;
     z-index: 999;
-    padding: 0 20px;
 }
 
 /* Structure navbar items in containers */
@@ -41,19 +40,16 @@
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0 50px;
+  padding: 0 20px;
 }
 
 /* Add logo image */
 #navbar__logo img {
   height: 110px;
-  width: auto;
-  margin-right: 2rem;
+  margin-right: 5rem;
 }
 
 #navbar__logo {
-  display: flex;
-  align-items: center;
   cursor: default;
   text-decoration: none;
   padding-top: 10px;
@@ -84,12 +80,12 @@
 
 .navbar__menu.active {
   font-weight: bold;
-  color: #f77062;
-  border-bottom: 2px solid #f77062;
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
 }
 
 .navbar__links:hover {
-  color: #f77062;
+  color: var(--accent-color);
   transition: all 0.3s ease;
 }
 /*** navbar stuff end ***/
@@ -259,12 +255,67 @@ h1 {
 /* Styling content block */
 .content {
   padding: 25px;
-  border: 5px solid black; /* Border for format viewing purposes, possibly remove later */
+  border: none; /* Border for format viewing purposes, possibly remove later */
   margin: 0 auto 34px;
   width: 90%; /* Use percentages for flexible layout */
 }
 
 /* Responsive design using media queries */
+/* Icons replace word links for smaller top nav */
+@media(max-width: 768px){
+  .navbar{
+    display: none;
+  }
+  body{
+    grid-template-columns: 1fr;
+  }
+  main{
+    padding: 80px 0 2em 0; /* top right bottom left */
+  }
+  
+  #toggle-nav{
+    height: 80px;
+    width: 100%;
+    border-right: none;
+    background-color: var(--secondary-color);
+    padding: 0;
+    position: fixed;
+    transition: none;
+    display: flex; /* Ensures toggle nav behaves as a container */
+    justify-content: center; /* Center contents horizontally */
+    align-items: center; /* Center contents vertically */
+
+    > ul{
+      padding: 0;
+      display: grid;
+      grid-auto-columns: 80px;
+      grid-auto-flow: column;
+      align-items: center;
+      overflow-x: auto;
+    }
+    ul li{
+      height: 100%;
+    }
+    ul a{
+      width: 80px;
+      height: 80px;
+      padding: 0;
+      border-radius: 0;
+      justify-content: center;
+    }
+    ul li span, ul li:first-child, .dropdown-btn svg:last-child, ul .dropdown-btn{
+      display: none;
+    }
+    ul a svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  #toggle-nav::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+  }
+}
+
 @media (max-width: 1200px) {
   /* Adjusts the width of the navbar container for medium screens */
   .navbar__container {
@@ -285,40 +336,6 @@ h1 {
     width: 100%;
     margin-left: 0;
   }
-}
-
-@media (max-width: 768px) {
-  /* For very small screens (like phones) */
-  .navbar {
-    font-size: 1rem; /* Smaller text size on small screens */
-    padding: 0 10px;
-  }
-
-  .navbar__container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .navbar__menu {
-    flex-direction: column;
-    width: 100%;
-    gap: 1rem;
-  }
-
-  .navbar__links {
-    padding: 0.5rem;
-    width: 100%; /* Make links take up the full width */
-  }
-
-  .content {
-    width: 100%; /* Full width on small screens */
-    padding: 15px;
-  }
-
-  .button-link {
-    width: 45%;  /* Adjust width on smaller screens */
-    height: auto;  /* Let the height adjust based on content */
-  }  
 }
 
 /* Flashcard container to organize cards */
