@@ -14,8 +14,6 @@
 {% for word in words %}
     <div class="category-container">
         <strong>{{ word.english_word }} - {{ word.hmong_word }}</strong><br>
-
-        <img src="{% static 'images/animals/'|add:word.image_filename %}" alt="{{ word.english_word }} image" style="max-width: 300px; margin-bottom: 10px;"> <br>
         
         <button class="audio-button" data-audio="{{ MEDIA_URL }}{{ word.male_audio_url }}"> Audio 1 (Male)</button>
         <button class="audio-button" data-audio="{{ MEDIA_URL }}{{ word.female_audio_url }}"> Audio 2 (Female)</button><br>
