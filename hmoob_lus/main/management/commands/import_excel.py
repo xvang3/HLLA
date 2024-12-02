@@ -28,6 +28,7 @@ class Command(BaseCommand):
                         'pronunciation_video_url': row['Pronunciation Video'] if pd.notna(row['Pronunciation Video']) else None,
                         'real_video_url': row['Real Video'] if pd.notna(row['Real Video']) else None,
                         'animated_video_url': row['Animated Video'] if pd.notna(row['Animated Video']) else None,
+                        'image_filename': row['Image Filename'] if pd.notna(row['Image Filename']) else None,
                     }
                 )
                 print(f"{'Created' if created else 'Updated'} word: {word.english_word}")

@@ -11,7 +11,6 @@ class Word(models.Model):
     pronunciation_video_url = models.TextField(blank=True, null=True)
     real_video_url = models.TextField(blank=True, null=True)
     animated_video_url = models.TextField(blank=True, null=True)
-
     image_filename = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
