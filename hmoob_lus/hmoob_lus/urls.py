@@ -22,7 +22,7 @@ from main import views  # Import only once
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
-    #path('play-audio/', views.play_audio_test, name='play_audio_test'),  # Keep play_audio_test
+    path('play-audio/', views.play_audio_test, name='play_audio_test'),  # Keep play_audio_test
     path('', views.home, name='home'),  # Home view remains
     path('', include('main.urls')),  # Include app-level URLs here
 ]
