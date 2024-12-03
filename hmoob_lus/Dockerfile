@@ -1,23 +1,20 @@
-# Use official Python image as base
-FROM python:3.11-slim
+# Use an official Python runtime as the base image
+FROM python:3.10-slim
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+# Set the working directory in the container
+WORKDIR /app
 
-# Set work directory
-WORKDIR /code
+# Copy the requirements file into the container
+COPY requirements.txt .
 
 # Install dependencies
-COPY requirements.txt /code/
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy project
-COPY . /code/
+# Copy the rest of the app's source code
+COPY . .
 
-# Collect static files
-RUN python manage.py collectstatic --noinput
+# Expose the port your app runs on (e.g., 8000 for Django)
+EXPOSE 8000
 
-# Run the application
-CMD ["gunicorn", "hmoob_lus.wsgi:application", "--bind", "0.0.0.0:8000", "--timeout", "120"]
+# Run the app
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
