@@ -129,14 +129,14 @@ def p2_double_vowels(request):
     return render(request, 'practice/p2_double_vowels.html', {'words': words})
 
 def p2_dVowels_audio(request):
-    words = Word.objects.filter(category="Single Vowels")
+    words = Word.objects.filter(category="Double Vowels")
     return render(request, 'practice/p2_dVowels_audio.html', {
         'words': words,
         'MEDIA_URL': settings.MEDIA_URL 
     })
 
 def p2_dVowels_cards(request):
-    words = Word.objects.filter(category="Single Vowels")
+    words = Word.objects.filter(category="Double Vowels")
     return render(request, 'practice/p2_dVowels_cards.html', {'words': words})
 
 def p2_consonants(request):
