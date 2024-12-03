@@ -23,9 +23,9 @@
                 <li class="navbar__item">
                     <a href="{% url 'home' %}" class="navbar__links">HOME</a>
                 </li>
-                <li class="navbar__item">
+                <!-- <li class="navbar__item">
                     <a href="{% url 'courses' %}" class="navbar__links">COURSES</a>
-                </li>
+                </li> -->
                 <li class="navbar__item">
                     <a href="{% url 'practice' %}" class="navbar__links">PRACTICE</a>
                 </li>
@@ -56,7 +56,7 @@
                         <span>HOME</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <div class="link-container">
                         <a href="{% url 'courses' %}" class="courses">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z"/></svg>
@@ -76,7 +76,7 @@
                             <li><a href="{% url 'u6_animals' %}">Unit 6: Animals</a></li>
                         </div>
                     </ul>
-                </li>
+                </li> -->
                 <li>
                     <div class="link-container">
                         <a href="{% url 'practice' %}" class="practice">
@@ -104,6 +104,14 @@
                         <span>ABOUT US</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{% url 'memory_game' %}" class="about">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e8eaed">
+                            <path d="M5 2h10c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2zm14 4v14c0 1.1-.9 2-2 2H7v-2h10V6h2z"/>
+                        </svg>
+                        <span>MEMORY GAME</span>
+                    </a>
+                </li>                
             </ul>
         </aside>
     
