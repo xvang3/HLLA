@@ -17,9 +17,17 @@
 
         <!-- image retrieval not working -->
         <img src="{% static 'images/family_members/'|add:word.image_filename %}" alt="{{ word.english_word }} image" style="max-width: 300px; margin-bottom: 10px;"> <br>
+
+        <!-- Only show male audio button if URL exists -->
+        {% if word.male_audio_url %}
+            <button class="audio-button" data-audio="{{ MEDIA_URL }}{{ word.male_audio_url }}"> Audio (Male)</button>
+        {% endif %}
         
-        <button class="audio-button" data-audio="{{ MEDIA_URL }}{{ word.male_audio_url }}"> Audio 1 (Male)</button>
-        <button class="audio-button" data-audio="{{ MEDIA_URL }}{{ word.female_audio_url }}"> Audio 2 (Female)</button><br>
+        <!-- Only show female audio button if URL exists -->
+        {% if word.female_audio_url %}
+            <button class="audio-button" data-audio="{{ MEDIA_URL }}{{ word.female_audio_url }}"> Audio (Female)</button>
+        {% endif %}
+
     </div>
 {% endfor %}
 
