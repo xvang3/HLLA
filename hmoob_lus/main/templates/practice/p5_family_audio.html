@@ -11,6 +11,8 @@
     <a href="{% url 'p5_family_audio' %}" class="heading-link">Pronunciations</a>
 </h1>
 
+<img src="{% static 'images/family_members/family.png' %}" alt="family image" style="max-width: 500px; margin-bottom: 10px;"> <br>
+
 {% for word in words %}
     <div class="category-container">
         <strong>{{ word.english_word }} - {{ word.hmong_word }}</strong><br>
