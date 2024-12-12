@@ -29,3 +29,8 @@ Starting development server at http://127.0.0.1:8000/
 3) This means that our application has been launched and hosted locally on your system and should be ready for you to access, as long as the terminal stays opened. 
 4) Ctrl+Click on the link to open the server. Or simply in a browser in the bar: http://localhost:8000/
 5) To stop the hosting or turn off the application, simply exit or ctrl-c the terminal.
+
+<br>
+If you have any questions or comments, please contact us through our google form: https://forms.gle/DX9G6WsokU1xGrVa8
+<br>
+No guarantee of a timely response after December 2024 but we will try our best to respond (if requested). Thank you for taking interest in our application!
