@@ -34,3 +34,12 @@ Starting development server at http://127.0.0.1:8000/
 If you have any questions or comments, please contact us through our google form: https://forms.gle/DX9G6WsokU1xGrVa8
 <br>
 No guarantee of a timely response after December 2024 but we will try our best to respond (if requested). Thank you for taking interest in our application!
+
+## To use Docker instead
+1) Download Docker at https://docs.docker.com/desktop/ based on your system
+2) Start Docker
+3) Move to directory HLLA/hmoob_lus and locate Docker files (Docerfile, docker-compose.yml)
+4) In terminal, use command "docker-compose up" and web application should start in your localhost:8000 
+
+5) To stop the application, use ctrl + c in the terminal
+6) To shutdown the application, use the command "docker-compose down"
